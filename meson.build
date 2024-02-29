@@ -67,13 +67,13 @@ if get_option('only_docs')
 	subdir('tools')
 	subdir('doc')
 else
-	dpdk = dependency('libdpdk', required: true)
-	# message('prefix: ' + get_option('prefix') + ' libdir: ' + get_option('libdir'))
+    dpdk = dependency('libdpdk', required: true, method: 'pkg-config')
+	dpdk_prefix = dpdk.get_pkgconfig_variable('prefix')
+	message('prefix: ' + dpdk_prefix + ' libdir: ' + get_option('libdir'))
+	dpdk_libs_path = join_paths(dpdk_prefix, get_option('libdir'))
+	message('DPDK lib path: ' + dpdk_libs_path)
 
-	dpdk_libs_path = join_paths(get_option('prefix'), get_option('libdir'))
-	# message('DPDK lib path: ' + dpdk_libs_path)
-
-	dpdk_bond = cc.find_library('librte_net_bond', dirs: [dpdk_libs_path], required: false)
+    dpdk_bond = cc.find_library('librte_net_bond', dirs: [dpdk_libs_path], required: false)
 
 	subdir('tools')
 
