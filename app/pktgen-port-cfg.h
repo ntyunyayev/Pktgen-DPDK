@@ -228,7 +228,7 @@ typedef struct port_info_s {
     uint32_t mpls_entry; /**< Set the port MPLS entry */
     uint32_t gre_key;    /**< GRE key if used */
 
-    uint16_t nb_mbufs; /**< Number of mbufs in the system */
+    uint32_t nb_mbufs; /**< Number of mbufs in the system */
 
     rate_info_t rate;
 

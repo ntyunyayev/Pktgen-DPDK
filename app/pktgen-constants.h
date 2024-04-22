@@ -19,7 +19,7 @@ enum {
     MAX_PKT_TX_BURST     = 128, /* Used to create Max array sizes */
     DEFAULT_PKT_RX_BURST = 64,  /* Increasing this number consumes memory very fast */
     DEFAULT_PKT_TX_BURST = 64,  /* Increasing this number consumes memory very fast */
-    DEFAULT_RX_DESC      = (MAX_PKT_RX_BURST * 8),
+    DEFAULT_RX_DESC      = (MAX_PKT_RX_BURST * 64),
     DEFAULT_TX_DESC      = (MAX_PKT_TX_BURST * 16),
 
     MAX_MBUFS_PER_PORT =
